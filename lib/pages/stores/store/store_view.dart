@@ -31,7 +31,7 @@ class StorePage extends GetView<StoreController> {
           height: MediaQuery.of(context).size.height,
           child: GridView.count(
             crossAxisCount: 2,
-            childAspectRatio: 0.71,
+            childAspectRatio: 0.62,
             children: const [
               StoreItemCard(
                 title: 'Item #1',
@@ -124,7 +124,7 @@ class StoreItemCard extends StatelessWidget {
                   fit: BoxFit.cover),
             ),
             Container(
-              margin: const EdgeInsets.all(14.0),
+              margin: const EdgeInsets.only(top: 14.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

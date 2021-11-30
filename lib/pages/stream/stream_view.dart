@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -33,7 +35,7 @@ class StreamPage extends GetView<StreamController> {
           ),
         ],
       ),
-      drawer: Drawer(
+      drawer: const Drawer(
         child: InnerDrawer(),
       ),
       body: Obx(
@@ -43,23 +45,26 @@ class StreamPage extends GetView<StreamController> {
             WebView(
               initialUrl: 'https://www.twitch.tv/gaules',
               javascriptMode: JavascriptMode.unrestricted,
-              onWebViewCreated: (WebViewController webViewController) {
-                controller.webviewController.complete(webViewController);
-              },
+              // onWebViewCreated: (WebViewController webViewController) {
+              //   webViewController.loadUrl(Uri.dataFromString(controller.twitchEmbed,
+              //           mimeType: 'text/html',
+              //           encoding: Encoding.getByName('utf-8'))
+              //       .toString());
+              // },
               onProgress: (int progress) {
                 print("WebView is loading (progress : $progress%)");
               },
               javascriptChannels: <JavascriptChannel>{
                 _toasterJavascriptChannel(context),
               },
-              navigationDelegate: (NavigationRequest request) {
-                if (request.url.startsWith('https://www.youtube.com/')) {
-                  print('blocking navigation to $request}');
-                  return NavigationDecision.prevent;
-                }
-                print('allowing navigation to $request');
-                return NavigationDecision.navigate;
-              },
+              //navigationDelegate: (NavigationRequest request) {
+              //   if (request.url.startsWith('https://www.youtube.com/')) {
+              //     print('blocking navigation to $request}');
+              //     return NavigationDecision.prevent;
+              //   }
+              //   print('allowing navigation to $request');
+              //   return NavigationDecision.navigate;
+              //},
               onPageStarted: (String url) {
                 print('Page started loading: $url');
               },
