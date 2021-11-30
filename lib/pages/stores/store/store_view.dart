@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:tip/pages/stores/store/store_controller.dart';
-import 'package:tip/pages/stores/stores_view.dart';
 import 'package:tip/styles/colors.dart';
 
 class StorePage extends GetView<StoreController> {
@@ -15,7 +14,16 @@ class StorePage extends GetView<StoreController> {
   @override
   Widget build(context) {
     return Scaffold(
-      appBar: AppBar(title: Text(controller.title!)),
+      appBar: AppBar(
+        title: Text(controller.title!),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.chevron_left_rounded,
+            size: 42.0,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.only(bottom: 80.0),

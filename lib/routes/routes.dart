@@ -9,6 +9,8 @@ import 'package:tip/pages/stores/store/store_bindings.dart';
 import 'package:tip/pages/stores/store/store_view.dart';
 import 'package:tip/pages/stores/stores_bindings.dart';
 import 'package:tip/pages/stores/stores_view.dart';
+import 'package:tip/pages/stream/stream_binding.dart';
+import 'package:tip/pages/stream/stream_view.dart';
 import 'package:tip/pages/wallet/wallet_bindings.dart';
 import 'package:tip/pages/wallet/wallet_view.dart';
 
@@ -44,6 +46,11 @@ class AppRoutes {
             name: '/wallet',
             page: () => WalletPage(),
             binding: WalletBinding(),
+          ),
+          GetPage(
+            name: '/stream',
+            page: () => StreamPage(),
+            binding: StreamBinding(),
           ),
         ]),
   ];
