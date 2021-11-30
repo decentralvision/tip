@@ -41,7 +41,7 @@ class StreamPage extends GetView<StreamController> {
           index: controller.tabIndex.value,
           children: [
             WebView(
-              initialUrl: 'https://flutter.dev',
+              initialUrl: 'https://www.twitch.tv/gaules',
               javascriptMode: JavascriptMode.unrestricted,
               onWebViewCreated: (WebViewController webViewController) {
                 controller.webviewController.complete(webViewController);
